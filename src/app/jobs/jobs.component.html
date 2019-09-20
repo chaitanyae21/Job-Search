@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="container">
+        <div class="row">
+            
+                <p>Company name</p><input type="text" [(ngModel)]="company" >  
+                <p> Location</p> <input type="text" [(ngModel)]="place"> 
+                <p>Experience</p><input type="text" [(ngModel)]="exp">  
+                <button type="button" (click)="getJob(company,place,exp)"> Search</button>  
+            
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="row" *ngIf="allJobs" >
+        <div><h2>{{allJobs.length}} jobs found!</h2></div>
+        <div *ngFor="let job of allJobs" class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading"*ngIf="job.title!=''" >{{job.title | uppercase}}</div>
+                    <div class="panel-body">
+                        <p *ngIf="job.jd!=''">{{job.jd}}</p>
+                        <p *ngIf="job.companyname!=''">{{job.companyname}}</p>
+                        <p *ngIf="job.location!=''">Located at {{job.location}}</p>
+                        <p *ngIf="job.experience!=''">Experience: {{job.experience}}</p>
+                        <p *ngIf="job.salary!=''">Salary: {{job.salary}}</p>
+                        <p *ngIf="job.type!=''">Job type: {{job.type}}</p>
+                        <p *ngIf="job.skills!=''">Skills: {{job.skills}}</p>
+                        <p *ngIf="job.applylink!=''">Apply here: {{job.applylink}}</p>
+                        <p *ngIf="job.startdate!=''">Start date: {{job.startdate}}</p>
+                        <p *ngIf="job.enddate!=''">Apply before {{job.enddate}}</p>
+                    </div>
+                <div class="panel-footer">Posted
+                    <p *ngIf="job.created!=''"> {{job.created}}</p>
+                    <p *ngIf="job.source!=''">by {{job.source}}</p>
+                  <a class="btn btn-primary">Apply</a>
+                </div>                      
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
