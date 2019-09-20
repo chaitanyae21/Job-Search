@@ -30,6 +30,7 @@ import { JobHttpService } from './job-http.service';
     FormsModule
   ],
   providers: [JobHttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[RouterModule]
 })
 export class AppModule { }
